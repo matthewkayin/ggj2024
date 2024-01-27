@@ -8,7 +8,7 @@ var beat_timer: float = 0.0
 var playing = false
 
 func _ready():
-    open_song("res://songs/hot_cross_buns.tres")
+    open_song("res://songs/scales.tres")
 
 func open_song(path: String):
     var song = load(path)
@@ -45,7 +45,6 @@ func open_song(path: String):
             "position": note_position,
             "length": note_length
         })
-        note_position += note_length
 
         var note_instance = note_scene.instantiate()
         note_instance.note = note_value
@@ -53,6 +52,8 @@ func open_song(path: String):
         note_instance.note_position = note_position
         add_child(note_instance)
         note_instance.set_initial_position()
+
+        note_position += note_length
 
     beat_timer = 0.0
     playing = true

@@ -7,7 +7,18 @@ script = ExtResource("1_8s17w")
 bpm = 120
 notes = "E3 2
 D3 2
-C3 2
+C3 4
 E3 2
 D3 2
-C3 2"
+C3 4
+C3
+C3
+C3
+C3
+D3
+D3
+D3
+D3
+E3 2
+D3 2
+C3 4"

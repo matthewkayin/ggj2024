@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Song" load_steps=2 format=3 uid="uid://bh4up636hebpq"]
+
+[ext_resource type="Script" path="res://song.gd" id="1_yjlem"]
+
+[resource]
+script = ExtResource("1_yjlem")
+bpm = 120
+notes = "C3
+D3
+E3
+F3
+G3
+A3
+B3
+C4
+D4
+E4
+F4"

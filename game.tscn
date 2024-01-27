@@ -11,7 +11,7 @@ script = ExtResource("1_5dqdf")
 [node name="release_timer" type="Timer" parent="recorder"]
 
 [node name="staff" type="Node2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(0, 28)
 script = ExtResource("2_jcke2")
 
 [node name="line_f" type="ColorRect" parent="staff"]
