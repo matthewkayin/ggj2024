@@ -1,6 +1,6 @@
 extends Node2D
 
-const ALLOWANCE = 30
+const ALLOWANCE = 20
 const TARGET_X = 135
 var NOTE_X_DIST = 28.0 * 4.0
 const LABEL_VALUE = {
@@ -32,24 +32,25 @@ func set_initial_position():
     position.y = 160 - ((int(note) - 1) * 16)
     position.x = TARGET_X + (note_position * NOTE_X_DIST)
     $bg.frame = int(note) - 1
-    $sustain.size.x = NOTE_X_DIST * (note_length - (get_parent().beat_length * 0.5))
+    $sustain.size.x = NOTE_X_DIST * (note_length - (get_parent().beat_length * 0.2))
 
 func can_be_played():
-    return (position.x >= TARGET_X and position.x - TARGET_X <= ALLOWANCE) or (position.x < TARGET_X && position.x + $sustain.size.x > TARGET_X)
+    return abs(position.x - TARGET_X) <= ALLOWANCE
+
+func should_be_played():
+    return position.x <= TARGET_X && position.x + $sustain.size.x >= TARGET_X
 
 func _process(_delta):
     var current_position = note_position - get_parent().beat_timer
     position.x = TARGET_X + (current_position * NOTE_X_DIST)
     if is_being_played:
-        if not can_be_played():
-            is_being_played = false
+        if position.x + $sustain.size.x < TARGET_X:
             release()
         $bg.position.x = TARGET_X - position.x - 14
+    if position.x < TARGET_X and abs(position.x - TARGET_X) > ALLOWANCE:
+        get_parent().score_note(false)
     if position.x + $sustain.size.x < -TARGET_X:
-        get_parent().score_note({
-            "hit": false
-        })
-        queue_free()
+        release()
 
 func play(as_note: Recorder.Note):
     played_as = as_note
@@ -58,11 +59,8 @@ func play(as_note: Recorder.Note):
         $bg.frame = int(note) - 1
     hit_offset = max(abs(position.x - TARGET_X), ALLOWANCE)
     is_being_played = true
+    get_parent().score_note(true)
 
 func release():
-    get_parent().score_note({
-        "hit": true,
-        "hit_offset": hit_offset,
-        "wrong_note": note != played_as
-    })
+    is_being_played = false
     queue_free()

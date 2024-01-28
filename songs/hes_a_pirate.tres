@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="Song" load_steps=2 format=3 uid="uid://baffdqu1fivpg"]
+
+[ext_resource type="Script" path="res://song.gd" id="1_o1hbt"]
+
+[resource]
+script = ExtResource("1_o1hbt")
+songname = "He's a Pirate"
+bpm = 315
+notes = "E3 G3 A3,2 A3 R
+A3 B3 C4,2 C4 R
+C4 D4 B3,2 B3 R
+A3 G3 G3 A3 R,2
+# rep 2
+E3 G3 A3,2 A3 R
+A3 B3 C4,2 C4 R
+C4 D4 B3,2 B3 R
+A3 G3 A3 R,3
+# rep 3
+E3 G3 A3,2 A3 R
+A3 C4 D4,2 D4 R
+D4 E4 F4,2 F4 R
+E4 D4 E4 A3 R,2
+# rep 4
+A3 B3 C4,2 C4,2
+D4,2 E4 A3 R,2
+A3 C4 B3,2 B3,2
+C4 A3 B3 R,3
+# VERSE REPEAT
+E3 G3 A3,2 A3 R
+A3 B3 C4,2 C4 R
+C4 D4 B3,2 B3 R
+A3 G3 G3 A3 R,2
+# rep 2
+E3 G3 A3,2 A3 R
+A3 B3 C4,2 C4 R
+C4 D4 B3,2 B3 R
+A3 G3 A3 R,3
+# rep 3
+E3 G3 A3,2 A3 R
+A3 C4 D4,2 D4 R
+D4 E4 F4,2 F4 R
+E4 D4 E4 A3 R,2
+# rep 4
+A3 B3 C4,2 C4,2
+D4,2 E4 A3 R,2
+A3 C4 B3,2 B3,2
+A3 G3 A3,2 A3,2 B3,2
+C4,2 C4 C4 D4,2
+# DUN! danana DUN! danana
+E4,4 C4 A3 E3,2 R,4
+F4,4 C4 A3 F3,2 R,4
+E3 E3 R A3 R,2 G3 R,4
+# dun dun dun dana! dun dun dun dana
+E4,2 E4,2 E4,2 F4 E4 R,4
+D4,2 D4,2 D4,2 D4 E4 R,4
+E4,2 E4,2 E4,2 F4 E4 R,4
+D4,2 C4,2 B3,2 A3,2 R,2
+# sweeping
+D3 E3 F3,4
+G3 A3 G3,2 F3,2 E3,2 F3,2 G3,2 A3,2 G3,2 R,2
+F3 G3 A3,2 R,2 G3 F3 E3,2 F3,2 E3,2 D3,2 R,2 E3 C3 D3,2 R,2
+# rep 2
+D3 E3 F3,2 R,2
+E3 F3 G3,2 F3,2 G3,2 A3,2 G3,2 F3,2 D3,2 R,2
+D3 E3 F3,2 G3,2 A3,2 B3,2 D3,2 G3,2 F3,2 R,2 G3 E3 D3,2 R,2
+# blasting
+E3 C3 A3,2 R,4 B3,2 R,4
+A3,2 A3,2 A3,2 A3 G3,2 R,3
+# rep 2
+G3,2 R,4 F3,2 R,4
+E3,2 F3,2 E3,2 E3 D3,2
+D3 E3 F3
+# rep 3
+A3,2 R D3 E3 F3
+B3,2 R D3 E3 F3
+A3,2 A3,2 C4,2 A3 G3,2 R,3
+# rep 4
+G3,2 R,4 F3,2 R,4
+E3,2 F3,2 E3,2 E3 D3,2"

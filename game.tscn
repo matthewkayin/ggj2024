@@ -1,14 +1,210 @@
-[gd_scene load_steps=7 format=3 uid="uid://do22ou5h41ukf"]
+[gd_scene load_steps=62 format=3 uid="uid://do22ou5h41ukf"]
 
 [ext_resource type="Script" path="res://recorder/recorder.gd" id="1_5dqdf"]
+[ext_resource type="Script" path="res://game.gd" id="1_hckt1"]
 [ext_resource type="Script" path="res://staff.gd" id="2_jcke2"]
 [ext_resource type="Resource" uid="uid://efcxa31roeoo" path="res://songs/lost_woods.tres" id="3_1f6g1"]
+[ext_resource type="Texture2D" uid="uid://q4bck8bhf0de" path="res://room/bard.png" id="3_nbn3x"]
+[ext_resource type="Texture2D" uid="uid://bk3uxfqj5pemy" path="res://room/king.png" id="4_2ie1x"]
 [ext_resource type="Texture2D" uid="uid://cwusp5y2nrj8g" path="res://staff/cleff.png" id="4_y1yd4"]
 [ext_resource type="Texture2D" uid="uid://b0f7y0s76qwal" path="res://room/floor.png" id="5_chs5i"]
 [ext_resource type="Texture2D" uid="uid://j2d5eer51m8d" path="res://room/wall.png" id="5_j4lyu"]
+[ext_resource type="Texture2D" uid="uid://c2jkl1sbiela0" path="res://room/dialog.png" id="5_sjspf"]
+[ext_resource type="FontFile" uid="uid://dvuvjmusn74rf" path="res://BitPotion.ttf" id="6_h5kk8"]
+[ext_resource type="Texture2D" uid="uid://2acg3bggeboh" path="res://cursor.png" id="7_4thcm"]
+[ext_resource type="Script" path="res://song_menu.gd" id="7_l68hy"]
+[ext_resource type="Script" path="res://stars.gd" id="8_6v24m"]
+[ext_resource type="Resource" uid="uid://baffdqu1fivpg" path="res://songs/hes_a_pirate.tres" id="8_d2l8w"]
+[ext_resource type="Texture2D" uid="uid://dde0m4qx0fuvk" path="res://stars_empty.png" id="8_li130"]
+[ext_resource type="Texture2D" uid="uid://h26f7t886ybj" path="res://stars_full.png" id="9_sf5er"]
+[ext_resource type="Resource" uid="uid://bh4up636hebpq" path="res://songs/scales.tres" id="10_6c2vn"]
+[ext_resource type="AudioStream" uid="uid://c6qysbjkhceqi" path="res://recorder/samples/Recorder_Release_C3.wav" id="17_ykfh7"]
+[ext_resource type="AudioStream" uid="uid://daaqkvs7vwdxe" path="res://recorder/samples/Recorder_Release_D3.wav" id="18_bsryr"]
+[ext_resource type="AudioStream" uid="uid://cw8bg5qs5k047" path="res://recorder/samples/Recorder_Release_E3.wav" id="19_5ueit"]
+[ext_resource type="AudioStream" uid="uid://c6afnuhujfkg7" path="res://recorder/samples/Recorder_Release_F3.wav" id="20_5iwdi"]
+[ext_resource type="AudioStream" uid="uid://chqdbe50xlrsh" path="res://recorder/samples/Recorder_Release_G3.wav" id="21_mx0xn"]
+[ext_resource type="AudioStream" uid="uid://cd5hh8rhscmyx" path="res://recorder/samples/Recorder_Release_A3.wav" id="22_22kqh"]
+[ext_resource type="AudioStream" uid="uid://cryqs6grwrgkb" path="res://recorder/samples/Recorder_Release_B3.wav" id="23_u2ge2"]
+[ext_resource type="AudioStream" uid="uid://cpwox0sqfe3co" path="res://recorder/samples/Recorder_Release_C4.wav" id="24_avk3b"]
+[ext_resource type="AudioStream" uid="uid://dlvkdbyr28f2y" path="res://recorder/samples/Recorder_Release_D4.wav" id="25_oiroo"]
+[ext_resource type="AudioStream" uid="uid://3a7nlyt2fquu" path="res://recorder/samples/Recorder_Release_E4.wav" id="26_64u5o"]
+[ext_resource type="AudioStream" uid="uid://bbybpubix20e" path="res://recorder/samples/Recorder_Release_F4.wav" id="27_dqj8f"]
+[ext_resource type="AudioStream" uid="uid://dx8uxxsimpode" path="res://recorder/samples/Recorder_Sustain_C3.wav" id="28_j8d5w"]
+[ext_resource type="AudioStream" uid="uid://yvub5c5sc30y" path="res://recorder/samples/Recorder_Sustain_D3.wav" id="29_r1nqu"]
+[ext_resource type="AudioStream" uid="uid://b5ei270l8s72b" path="res://recorder/samples/Recorder_Sustain_E3.wav" id="30_qolqf"]
+[ext_resource type="AudioStream" uid="uid://uv3dicr1581d" path="res://recorder/samples/Recorder_Sustain_F3.wav" id="31_wgiws"]
+[ext_resource type="AudioStream" uid="uid://btkw3eo01lmud" path="res://recorder/samples/Recorder_Sustain_G3.wav" id="32_xelqv"]
+[ext_resource type="AudioStream" uid="uid://cdvsnpuevurly" path="res://recorder/samples/Recorder_Sustain_A3.wav" id="33_ifq7c"]
+[ext_resource type="AudioStream" uid="uid://dc603a22y7hop" path="res://recorder/samples/Recorder_Sustain_B3.wav" id="34_xbu8q"]
+[ext_resource type="AudioStream" uid="uid://brsh37ha8edw7" path="res://recorder/samples/Recorder_Sustain_C4.wav" id="35_k62xq"]
+[ext_resource type="AudioStream" uid="uid://sgtilfre2qev" path="res://recorder/samples/Recorder_Sustain_D4.wav" id="36_tuhd5"]
+[ext_resource type="AudioStream" uid="uid://d3m52j7cgyltm" path="res://recorder/samples/Recorder_Sustain_E4.wav" id="37_xymxj"]
+[ext_resource type="AudioStream" uid="uid://bp6libbrpwmbj" path="res://recorder/samples/Recorder_Sustain_F4.wav" id="38_e4a1n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcq4s"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aij8"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw0ja"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m43p1"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdw6s"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr4gw"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj1fa"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26mxa"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hn08"]
+atlas = ExtResource("3_nbn3x")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5i2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcq4s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aij8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw0ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m43p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdw6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr4gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj1fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26mxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hn08")
+}],
+"loop": true,
+"name": &"playing",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egfxs"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwnxf"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3xge"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56y1r"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyrd3"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkg2a"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ce6f"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lta7"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmthx"]
+atlas = ExtResource("4_2ie1x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6e4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egfxs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwnxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3xge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56y1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyrd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkg2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ce6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lta7")
+}],
+"loop": false,
+"name": &"laugh",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmthx")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ise0p"]
+font = ExtResource("6_h5kk8")
+font_color = Color(0, 0, 0, 1)
 
 [node name="game" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_hckt1")
 
 [node name="room" type="Node2D" parent="."]
 
@@ -28,15 +224,184 @@ centered = false
 region_enabled = true
 region_rect = Rect2(2.08165e-12, 2.08165e-12, 640, 32)
 
+[node name="bard" type="AnimatedSprite2D" parent="room"]
+position = Vector2(141, 283)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p5i2y")
+animation = &"idle"
+
+[node name="king" type="AnimatedSprite2D" parent="room"]
+position = Vector2(517, 282)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_e6e4w")
+animation = &"laugh"
+frame = 6
+frame_progress = 1.0
+flip_h = true
+
+[node name="song_menu" type="NinePatchRect" parent="room"]
+offset_left = 145.0
+offset_top = 238.0
+offset_right = 269.0
+offset_bottom = 281.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_sjspf")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource("7_l68hy")
+songs = Array[Resource("res://song.gd")]([ExtResource("10_6c2vn"), ExtResource("3_1f6g1"), ExtResource("8_d2l8w")])
+
+[node name="options" type="Control" parent="room/song_menu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="label" type="Label" parent="room/song_menu/options"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 25.0
+text = "He's a Pirate"
+label_settings = SubResource("LabelSettings_ise0p")
+
+[node name="stars" type="Sprite2D" parent="room/song_menu/options/label"]
+position = Vector2(83, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_li130")
+script = ExtResource("8_6v24m")
+
+[node name="full" type="Sprite2D" parent="room/song_menu/options/label/stars"]
+position = Vector2(-40, -8)
+texture = ExtResource("9_sf5er")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 16)
+
+[node name="label2" type="Label" parent="room/song_menu/options"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 75.0
+offset_bottom = 37.0
+text = "He's a Pirate"
+label_settings = SubResource("LabelSettings_ise0p")
+
+[node name="stars" type="Sprite2D" parent="room/song_menu/options/label2"]
+position = Vector2(83, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_li130")
+script = ExtResource("8_6v24m")
+
+[node name="full" type="Sprite2D" parent="room/song_menu/options/label2/stars"]
+position = Vector2(-40, -8)
+texture = ExtResource("9_sf5er")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 16)
+
+[node name="label3" type="Label" parent="room/song_menu/options"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 26.0
+offset_right = 75.0
+offset_bottom = 49.0
+text = "He's a Pirate"
+label_settings = SubResource("LabelSettings_ise0p")
+
+[node name="stars" type="Sprite2D" parent="room/song_menu/options/label3"]
+position = Vector2(83, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_li130")
+script = ExtResource("8_6v24m")
+
+[node name="full" type="Sprite2D" parent="room/song_menu/options/label3/stars"]
+position = Vector2(-40, -8)
+texture = ExtResource("9_sf5er")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 16)
+
+[node name="cursor" type="Sprite2D" parent="room/song_menu"]
+position = Vector2(9, 9)
+texture = ExtResource("7_4thcm")
+
 [node name="recorder" type="Node" parent="."]
 script = ExtResource("1_5dqdf")
 
 [node name="release_timer" type="Timer" parent="recorder"]
 
+[node name="release_c3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("17_ykfh7")
+
+[node name="release_d3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("18_bsryr")
+
+[node name="release_e3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("19_5ueit")
+
+[node name="release_f3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("20_5iwdi")
+
+[node name="release_g3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("21_mx0xn")
+
+[node name="release_a3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("22_22kqh")
+
+[node name="release_b3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("23_u2ge2")
+
+[node name="release_c4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("24_avk3b")
+
+[node name="release_d4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("25_oiroo")
+
+[node name="release_e4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("26_64u5o")
+
+[node name="release_f4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("27_dqj8f")
+
+[node name="sustain_c3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("28_j8d5w")
+
+[node name="sustain_d3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("29_r1nqu")
+
+[node name="sustain_e3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("30_qolqf")
+
+[node name="sustain_f3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("31_wgiws")
+
+[node name="sustain_g3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("32_xelqv")
+
+[node name="sustain_a3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("33_ifq7c")
+
+[node name="sustain_b3" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("34_xbu8q")
+
+[node name="sustain_c4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("35_k62xq")
+
+[node name="sustain_d4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("36_tuhd5")
+
+[node name="sustain_e4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("37_xymxj")
+
+[node name="sustain_f4" type="AudioStreamPlayer" parent="recorder"]
+stream = ExtResource("38_e4a1n")
+
 [node name="staff" type="Node2D" parent="."]
-position = Vector2(0, 28)
+position = Vector2(0, 34)
 script = ExtResource("2_jcke2")
-song = ExtResource("3_1f6g1")
 
 [node name="ColorRect" type="ColorRect" parent="staff"]
 visible = false
@@ -44,12 +409,6 @@ offset_top = -28.0
 offset_right = 640.0
 offset_bottom = 169.0
 color = Color(0, 0, 0, 0.435294)
-
-[node name="score_label" type="Label" parent="staff"]
-offset_top = -28.0
-offset_right = 40.0
-offset_bottom = -5.0
-text = "SCORE: "
 
 [node name="clef" type="Sprite2D" parent="staff"]
 z_index = 1
@@ -132,3 +491,16 @@ offset_left = 121.0
 offset_right = 129.0
 offset_bottom = 164.0
 color = Color(0, 0, 0, 1)
+
+[node name="stars" type="Sprite2D" parent="staff"]
+position = Vector2(560, -18)
+scale = Vector2(2, 2)
+texture = ExtResource("8_li130")
+script = ExtResource("8_6v24m")
+
+[node name="full" type="Sprite2D" parent="staff/stars"]
+position = Vector2(-40, -8)
+texture = ExtResource("9_sf5er")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 16)
