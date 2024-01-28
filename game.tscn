@@ -1,9 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://do22ou5h41ukf"]
+[gd_scene load_steps=7 format=3 uid="uid://do22ou5h41ukf"]
 
 [ext_resource type="Script" path="res://recorder/recorder.gd" id="1_5dqdf"]
 [ext_resource type="Script" path="res://staff.gd" id="2_jcke2"]
+[ext_resource type="Resource" uid="uid://efcxa31roeoo" path="res://songs/lost_woods.tres" id="3_1f6g1"]
+[ext_resource type="Texture2D" uid="uid://cwusp5y2nrj8g" path="res://staff/cleff.png" id="4_y1yd4"]
+[ext_resource type="Texture2D" uid="uid://b0f7y0s76qwal" path="res://room/floor.png" id="5_chs5i"]
+[ext_resource type="Texture2D" uid="uid://j2d5eer51m8d" path="res://room/wall.png" id="5_j4lyu"]
 
 [node name="game" type="Node2D"]
+texture_filter = 1
+
+[node name="room" type="Node2D" parent="."]
+
+[node name="wall" type="Sprite2D" parent="room"]
+texture_repeat = 2
+scale = Vector2(2, 2)
+texture = ExtResource("5_j4lyu")
+centered = false
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 320, 180)
+
+[node name="floor" type="Sprite2D" parent="room"]
+texture_repeat = 2
+position = Vector2(0, 328)
+texture = ExtResource("5_chs5i")
+centered = false
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 640, 32)
 
 [node name="recorder" type="Node" parent="."]
 script = ExtResource("1_5dqdf")
@@ -13,6 +36,25 @@ script = ExtResource("1_5dqdf")
 [node name="staff" type="Node2D" parent="."]
 position = Vector2(0, 28)
 script = ExtResource("2_jcke2")
+song = ExtResource("3_1f6g1")
+
+[node name="ColorRect" type="ColorRect" parent="staff"]
+visible = false
+offset_top = -28.0
+offset_right = 640.0
+offset_bottom = 169.0
+color = Color(0, 0, 0, 0.435294)
+
+[node name="score_label" type="Label" parent="staff"]
+offset_top = -28.0
+offset_right = 40.0
+offset_bottom = -5.0
+text = "SCORE: "
+
+[node name="clef" type="Sprite2D" parent="staff"]
+z_index = 1
+position = Vector2(44, 86)
+texture = ExtResource("4_y1yd4")
 
 [node name="line_f" type="ColorRect" parent="staff"]
 offset_right = 640.0
@@ -86,8 +128,7 @@ offset_bottom = 148.0
 color = Color(0, 0, 0, 1)
 
 [node name="target_line" type="ColorRect" parent="staff"]
-offset_left = 55.0
-offset_top = -16.0
-offset_right = 63.0
-offset_bottom = 151.0
-color = Color(1, 0, 0, 1)
+offset_left = 121.0
+offset_right = 129.0
+offset_bottom = 164.0
+color = Color(0, 0, 0, 1)

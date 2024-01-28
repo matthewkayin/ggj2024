@@ -1,10 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmsasp0u30ay8"]
 
 [ext_resource type="Script" path="res://staff/note.gd" id="1_mhxt2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_sd4hv"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://dm8htec3s0hxp" path="res://staff/notes.png" id="2_yaag4"]
 
 [node name="note" type="Node2D"]
 script = ExtResource("1_mhxt2")
@@ -13,23 +10,9 @@ script = ExtResource("1_mhxt2")
 offset_top = -2.0
 offset_right = 14.0
 offset_bottom = 2.0
-color = Color(1, 1, 0, 1)
+color = Color(0.92549, 0.909804, 0.760784, 1)
 
-[node name="bg" type="ColorRect" parent="."]
+[node name="bg" type="Sprite2D" parent="."]
 texture_filter = 1
-offset_left = -14.0
-offset_top = -12.0
-offset_right = 14.0
-offset_bottom = 16.0
-color = Color(1, 1, 0, 1)
-
-[node name="label" type="Label" parent="bg"]
-layout_mode = 0
-offset_left = -15.0
-offset_top = -9.0
-offset_right = 25.0
-offset_bottom = 36.0
-text = "A"
-label_settings = SubResource("LabelSettings_sd4hv")
-horizontal_alignment = 2
-vertical_alignment = 1
+texture = ExtResource("2_yaag4")
+hframes = 11

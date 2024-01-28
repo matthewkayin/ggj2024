@@ -1,18 +1,19 @@
 extends Node2D
 
 @onready var note_scene = preload("res://staff/note.tscn")
+@onready var score_label = $score_label
+@export var song: Song
 
 var beat_length: float = 0.0
 var notes = []
 var beat_timer: float = 0.0
+var score: int = 0
 var playing = false
 
 func _ready():
-    open_song("res://songs/scales.tres")
+    open_song()
 
-func open_song(path: String):
-    var song = load(path)
-
+func open_song():
     var beats_per_second = float(song.bpm) / 60.0
     beat_length = 1.0 / beats_per_second
 
@@ -20,6 +21,8 @@ func open_song(path: String):
     var note_lines = song.notes.split("\n")
     var note_position: float = beat_length * 4.0
     for line in note_lines:
+        if line.begins_with("#"):
+            continue
         var parts = line.split(" ")
 
         var note_length = beat_length
@@ -37,7 +40,7 @@ func open_song(path: String):
             if parts[0] == Recorder.Note.keys()[note]:
                 note_value = note
         if note_value == null:
-            print("Error parsing song with path " + path + ". Note " + parts[0] + " is not a note.")
+            print("Error parsing song. Note " + parts[0] + " is not a note.")
             return
 
         notes.append({
@@ -56,8 +59,19 @@ func open_song(path: String):
         note_position += note_length
 
     beat_timer = 0.0
+    score = 0
+    score_label.text = "SCORE: 0"
     playing = true
 
 func _process(delta):
     if playing:
         beat_timer += delta
+
+func score_note(score_info):
+    if not score_info.hit:
+        score += 5
+    else:
+        score += 5 + score_info.hit_offset
+        if score_info.wrong_note:
+            score += 15
+    score_label.text = "SCORE: " + str(score)
